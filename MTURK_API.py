@@ -7,8 +7,6 @@ import pickle
 import pandas as pd
 import random
 from tqdm import tqdm
-import time
-import pathlib
 
 
 sandbox_host = 'mechanicalturk.sandbox.amazonaws.com'
