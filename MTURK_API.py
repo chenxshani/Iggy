@@ -760,7 +760,7 @@ def HIT_creation(client, HIT_name, localRequirements, df_titles, verbos=True, ex
     if existing_qualification:
         hitIdFile = open("hit_ids.txt", "a")
         hitId2titleID = open("hit_id2title_id.txt", "a")
-        pickle_name = "HIT_ids_title_ids"+str(random.randint(0, 10))+".pickle"
+        pickle_name = "HIT_ids_title_ids"+str(random.randint(0, 10))+".pickle" # To not run over the existing pickle file
     else:
         hitIdFile = open("hit_ids.txt", "w")
         hitId2titleID = open("hit_id2title_id.txt", "w")
@@ -841,7 +841,7 @@ def main():
     collect_responses = False  # True when we want to collect responses for the HIT (ID taken from file)
     verbos = True  # whether to print account balance and sizes of the files created with the HITs ids
 
-    df_titles = pd.read_csv("round2_mturk_dup_removed.csv")
+    df_titles = pd.read_csv("mturk_data.csv")
 
     # Establishing mturk connection
     client = boto3.client('mturk',
@@ -853,8 +853,8 @@ def main():
         print(client.get_account_balance())  # [$10,000.00]
 
     if create_HIT_with_qualifications or add_HIT_to_qualification:
-        q_name = "Can Science Be Funny??"+str(random.randint(0, 10000))
-        HIT_name = "Can Science Be Funny??"+str(random.randint(0, 10000))
+        q_name = "Can Science Be Funny??"
+        HIT_name = "Can Science Be Funny??
         questions = def_questions()
         answers = def_answers()
 
